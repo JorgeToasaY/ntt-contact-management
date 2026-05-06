@@ -1,0 +1,35 @@
+<article class="contact-detail-card">
+  <header>
+    <h2>Detalle de contacto</h2>
+    <p>Información completa del contacto seleccionado</p>
+  </header>
+
+  <dl class="contact-info">
+    <div>
+      <dt>Nombre</dt>
+      <dd>{{ contact.name }}</dd>
+    </div>
+    <div>
+      <dt>Email</dt>
+      <dd>{{ contact.email }}</dd>
+    </div>
+    <div>
+      <dt>Estado civil</dt>
+      <dd>{{ contact.estado }}</dd>
+    </div>
+    <div>
+      <dt>Dirección</dt>
+      <dd>{{ contact.direccion }}</dd>
+    </div>
+    <div>
+      <dt>Teléfono</dt>
+      <dd>{{ contact.telefono }}</dd>
+    </div>
+    <div>
+      <dt>Edad</dt>
+      <dd>{{ contact.edad }} años</dd>
+    </div>
+  </dl>
+
+  <button type="button" (click)="closeDetails()" class="btn-close">Volver al listado</button>
+</article>

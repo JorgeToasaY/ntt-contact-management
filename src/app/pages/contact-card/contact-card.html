@@ -1,0 +1,39 @@
+<article class="contact-card" [ngClass]="{
+    'status-married': contact.estado === 'Casado',
+    'status-divorced': contact.estado === 'Divorciado',
+    'status-single': contact.estado === 'Soltero',
+    'status-widowed': contact.estado === 'Viudo',
+    'is-favorite': contact.favorito
+}">
+    <header class="card-header">
+        <div>
+            <h3>{{ contact.name }}</h3>
+            <p>{{ contact.email | emailMaskingPipe }}</p>
+        </div>
+        <span class="status-chip">{{ contact.estado }}</span>
+    </header>
+
+    <dl class="card-info">
+        <div>
+            <dt>Dirección</dt>
+            <dd>{{ contact.direccion }}</dd>
+        </div>
+        <div>
+            <dt>Teléfono</dt>
+            <dd>{{ contact.telefono }}</dd>
+        </div>
+        <div>
+            <dt>Edad</dt>
+            <dd>{{ contact.edad }} años</dd>
+        </div>
+    </dl>
+
+    <footer class="card-actions">
+        <button type="button" class="btn-secondary" (click)="toggleFavorite()">
+            {{ contact.favorito ? 'Quitar favorito' : 'Marcar favorito' }}
+        </button>
+        <button type="button" class="btn-ghost" (click)="viewDetails()">
+            Ver detalle
+        </button>
+    </footer>
+</article>

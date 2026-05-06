@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+	--surface-strong: #ffffff;
+	--surface-soft: #f8fafc;
+	--border-color: #dbe3ef;
+	--heading-color: #102a43;
+	--text-muted: #64748b;
+	--accent-color: #2563eb;
+	--elevation-soft: 0 16px 38px rgba(15, 23, 42, 0.11);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	min-height: 100%;
+}
+
+body {
+	font-family: 'Manrope', 'Segoe UI', sans-serif;
+	background:
+		radial-gradient(circle at 0 0, #e2f1ff 0%, transparent 38%),
+		radial-gradient(circle at 100% 100%, #f6e7d8 0%, transparent 32%),
+		linear-gradient(140deg, #eef4ff, #f6f8fc 55%, #edf4ff);
+	color: #1e293b;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+::selection {
+	background: #bfdbfe;
+	color: #0f172a;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}

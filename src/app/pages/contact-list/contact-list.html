@@ -1,0 +1,58 @@
+<section class="page-shell">
+  <header class="page-header">
+    <div>
+      <p class="eyebrow">CRM Interno</p>
+      <h1>Gestor de contactos</h1>
+      <p class="subtitle">Administra tu red con estado reactivo usando Signals.</p>
+    </div>
+
+    @if (!selectedContact()) {
+      <button class="btn-primary" type="button" (click)="addNewContact()">
+        + Agregar contacto
+      </button>
+    }
+  </header>
+
+  <div class="stats-grid">
+    <article class="stat-card">
+      <p>Total de contactos</p>
+      <strong>{{ totalContacts() }}</strong>
+    </article>
+    <article class="stat-card favorite">
+      <p>Favoritos</p>
+      <strong>{{ totalFavorites() }}</strong>
+    </article>
+  </div>
+
+  @if (!selectedContact()) {
+    @if (contactsList().length === 0) {
+      <section class="empty-state">
+        <h2>No hay contactos registrados</h2>
+        <p>Crea tu primer contacto para iniciar la gestión.</p>
+      </section>
+    }
+    @else {
+      <section class="contact-list-grid">
+        @for (contact of contactsList(); track contact.email) {
+          <app-contact-card
+            [contact]="contact"
+            (viewDetail)="setSelectedContact($event)"
+            (iclickFavorite)="toggleFavorite($event)">
+          </app-contact-card>
+        }
+      </section>
+    }
+  }
+
+  @else {
+    <section class="detail-shell">
+      <p class="detail-badge" [class.favorite]="selectedContact()?.favorito">
+        {{ selectedContact()?.favorito ? 'Contacto favorito' : 'Contacto estándar' }}
+      </p>
+      <app-contact-detail
+        [contact]="selectedContact()!"
+        (closeDetail)="emptySelectedContact()">
+      </app-contact-detail>
+    </section>
+  }
+</section>
